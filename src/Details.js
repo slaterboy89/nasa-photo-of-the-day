@@ -1,5 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+import Image from './Image.js'
+const StyledDetails = styled.div`
+background: rgb(101,17,67);
+background: radial-gradient(circle, rgba(101,17,67,1) 0%, rgba(120,95,120,1) 50%, rgba(0,0,0,1) 83%);
+width: auto;
+height: auto;
+h1{
+  color: white;
+}
+h2{
+  margin-top: 10vh
+  display: flex;
+  color: white;
+}
+
+h4{
+  color: white;
+}
+
+p{
+display: flex;
+flex-wrap: wrap;
+font-size: 2vw;
+color: white;
+}
+
+div{
+  display: flex;
+}
+`
+
+
 
 export default function Details(props) {
     const { fr } = props
@@ -29,16 +62,21 @@ useEffect(() => {
   }, [fr])
 
   return (
-    <div className='container'>
+    <StyledDetails className='container'>
     
       {
         details &&
         <>
+          <h1>Astronomy Picture Of The Day</h1>
           <h2>{details.title}</h2>
-          <img src = {details.url} alt = 'Pic of the Day'/>
+          <h4>{details.date}</h4>
+          <div classname = 'testDiv'>
+          <Image src = {details.url} alt = 'Pic of the Day'/>
+          
           <p>{details.explanation}</p>
+          </div>
         </>
       }
-    </div>
+    </StyledDetails>
   )
 }

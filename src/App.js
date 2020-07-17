@@ -3,8 +3,6 @@ import "./App.css";
 import axios from 'axios'
 import Details from './Details'
 
-
-
 axios
   .get("https://api.nasa.gov/planetary/apod?api_key=yRKpI5VqoJq7Vfz6WxvOqFBT6NzQCBzBUDV5zcCK")
   .then((res) => {
@@ -29,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Astronomy Picture Of The Day</h1>
+  
     {
       <Details/>
     }
